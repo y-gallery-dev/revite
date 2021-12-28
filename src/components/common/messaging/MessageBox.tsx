@@ -1,4 +1,4 @@
-import { Send, ShieldX } from "@styled-icons/boxicons-solid";
+import { Mask, Send, ShieldX } from "@styled-icons/boxicons-solid";
 import Axios, { CancelTokenSource } from "axios";
 import { observer } from "mobx-react-lite";
 import { ChannelPermission } from "revolt.js/dist/api/permissions";
@@ -491,6 +491,21 @@ export default observer(({ channel }: Props) => {
                                 }
                             }}
                         />
+                    </Action>
+                ) : undefined}
+                {channel.permission & ChannelPermission.Masquerade ? (
+                    <Action>
+                        <IconButton
+                            className="masquerade"
+                            onClick={() =>
+                                openScreen({
+                                    id: "server_identity",
+                                    server: channel.server!,
+                                })
+                            }
+                            onMouseDown={(e) => e.preventDefault()}>
+                            <Mask size={20} />
+                        </IconButton>
                     </Action>
                 ) : undefined}
                 <TextAreaAutoSize
