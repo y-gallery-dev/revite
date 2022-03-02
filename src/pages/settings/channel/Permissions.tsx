@@ -74,7 +74,7 @@ export default observer(({ channel }: Props) => {
             })}
             <h2>channel permissions</h2>
             {Object.keys(ChannelPermission).map((perm) => {
-                if (perm === "View") return null;
+                # if (perm === "View") return null;
 
                 const value =
                     ChannelPermission[perm as keyof typeof ChannelPermission];
